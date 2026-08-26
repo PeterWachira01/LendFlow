@@ -1,0 +1,82 @@
+# LendFlow Development Startup
+
+## Folder structure
+
+Place these files in:
+
+C:\Users\User\Desktop\Lending-management-system\
+
+- start-lendflow.ps1
+- stop-lendflow.ps1
+
+Your existing project should look roughly like:
+
+Lending-management-system
+├── client
+├── server
+├── start-lendflow.ps1
+└── stop-lendflow.ps1
+
+## Start the project
+
+Right-click `start-lendflow.ps1` and choose **Run with PowerShell**.
+
+Or open PowerShell in the project folder and run:
+
+.\start-lendflow.ps1
+
+The script will:
+
+1. Check/start the PostgreSQL Windows service.
+2. Open a terminal for the backend and run `npm run dev`.
+3. Open another terminal for the frontend and run `npm run dev`.
+
+Expected addresses:
+
+Frontend:
+http://localhost:5173
+
+Backend:
+http://localhost:5000
+
+## Stop the project
+
+Run:
+
+.\stop-lendflow.ps1
+
+This stops Node/Vite development processes but intentionally leaves PostgreSQL running.
+
+## If PowerShell blocks the script
+
+If Windows says script execution is disabled, run this once in PowerShell:
+
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+Then run:
+
+.\start-lendflow.ps1
+
+## PostgreSQL
+
+You do NOT need to run `psql` every time just to start the application.
+
+`psql` is the PostgreSQL command-line client. PostgreSQL itself runs as a Windows service.
+
+The startup script checks for the PostgreSQL 18 service and starts it when necessary.
+
+If you want to open the PostgreSQL command line manually:
+
+psql -U postgres
+
+## Daily workflow
+
+1. Double-click/run `start-lendflow.ps1`.
+2. Wait for the frontend and backend terminals to start.
+3. Open http://localhost:5173
+4. Work on LendFlow.
+5. When finished, run `stop-lendflow.ps1`.
+
+## Important
+
+If your project is moved to a different folder, update `$ProjectRoot` inside `start-lendflow.ps1`.
