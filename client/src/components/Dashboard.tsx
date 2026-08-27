@@ -27,7 +27,7 @@ interface DashboardProps {
   onNavigate: (page: Page) => void;
 }
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://lendflow-server-w4bp.onrender.com/api";
 
 const authHeaders = () => ({
   Authorization: `Bearer ${localStorage.getItem("token")}`,

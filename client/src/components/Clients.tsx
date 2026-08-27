@@ -15,7 +15,7 @@ interface ClientsProps {
   onBack: () => void;
 }
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://lendflow-server-w4bp.onrender.com/api";
 
 function Clients({ onBack }: ClientsProps) {
   const [clients, setClients] = useState<Client[]>([]);

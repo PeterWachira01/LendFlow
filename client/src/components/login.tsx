@@ -5,7 +5,7 @@ interface LoginProps {
   onLogin: () => void;
 }
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://lendflow-server-w4bp.onrender.com/api";
 
 function Login({ onLogin }: LoginProps) {
   const [email, setEmail] = useState("");

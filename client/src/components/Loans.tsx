@@ -29,7 +29,7 @@ interface LoansProps {
   onBack: () => void;
 }
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://lendflow-server-w4bp.onrender.com/api";
 
 function Loans({ onBack }: LoansProps) {
   const [loans, setLoans] = useState<Loan[]>([]);
