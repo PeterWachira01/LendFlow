@@ -33,7 +33,7 @@ interface PaymentsProps {
   onBack: () => void;
 }
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://lendflow-server-w4bp.onrender.com/api";
 
 const authHeaders = () => ({
   Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -188,12 +188,11 @@ function Payments({ onBack }: PaymentsProps) {
         notes: "",
       });
 
-      // Refresh loans and payments.
-      const [loansResponse, paymentsResponse] =
-        await Promise.all([
-          fetch(`${API_URL}/loans`),
-          fetch(`${API_URL}/payments`),
-        ]);
+        const [loansResponse, paymentsResponse] =
+          await Promise.all([
+            fetch(`${API_URL}/loans`),
+            fetch(`${API_URL}/payments`),
+          ]);
 
       const loansData = await loansResponse.json();
       const paymentsData =
